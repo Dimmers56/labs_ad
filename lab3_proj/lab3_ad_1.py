@@ -184,16 +184,20 @@ with col1:
         index=list(area_names.values()).index(st.session_state.selected_area)
     )
 
-    if "week_range" not in st.session_state:
+        if "week_range" not in st.session_state:
         st.session_state.week_range = 1
-    st.session_state.week_range = st.slider(
-        "Виберіть інтервал тижнів", 1, 52, st.session_state.week_range
+    if "week_range_2" not in st.session_state:
+        st.session_state.week_range_2 = 5
+    st.session_state.week_range, st.session_state.week_range_2 = st.slider(
+        "Виберіть інтервал тижнів", 1, 52, (st.session_state.week_range, st.session_state.week_range_2)
     )
 
     if "year_range" not in st.session_state:
         st.session_state.year_range = 1982
-    st.session_state.year_range = st.slider(
-        "Виберіть інтервал років", 1982, 2025, st.session_state.year_range)
+    if "year_range_2" not in st.session_state:
+        st.session_state.year_range_2 = 2000
+    st.session_state.year_range, st.session_state.year_range_2 = st.slider(
+        "Виберіть інтервал років", 1982, 2025, (st.session_state.year_range, st.session_state.year_range_2)
 
     if st.button("Скинути фільтри"):
         st.session_state.selected_index = options_for_dropbox1[0]

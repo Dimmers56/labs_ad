@@ -208,8 +208,8 @@ with col1:
     df_vhi["Year"] = pd.to_numeric(df_vhi["Year"], errors="coerce").astype("Int64")
     filtered_df_vhi = df_vhi[
         (df_vhi["Province_ID"] == list(area_names.values()).index(st.session_state.selected_area)) &
-        (df_vhi["Year"].between(1, int(st.session_state.year_range))) &
-        (df_vhi["Week"].between(1.0, float(st.session_state.week_range)))]
+        (df_vhi["Year"].between(int(st.session_state.year_range), int(st.session_state.year_range_2))) &
+        (df_vhi["Week"].between(float(st.session_state.week_range), float(st.session_state.week_range_2)))]
 
     if "ascending_order" not in st.session_state:
         st.session_state["ascending_order"] = False
